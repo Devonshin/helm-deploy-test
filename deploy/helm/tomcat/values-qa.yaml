@@ -1,0 +1,18 @@
+image:
+  registry: docker.io
+  repository: devonshin/database-service
+  tag: latest
+# docker build -t devonshin/database-service:latest
+
+tomcatAllowRemoteManagement: 1
+
+persistence:
+  enabled: false
+
+service:
+  type: NodePort
+  nodePort: "30081"  # dev(30081), qa(30082), prod(30083)
+
+extraEnvVars:
+  - name: JAVA_OPTS
+    value: '-Dspring.profiles.active=dev'
