@@ -1,13 +1,13 @@
 spring:
   application:
     name: database
-# ?? ?? (localhost:8080/app/database)
+# 서버 정보 (localhost:8080/app/database)
 server:
   servlet:
     context-path: /app
   port: 8080
 
-# Readinessprobe, Livenessprobe ?
+# Readinessprobe, Livenessprobe 용
 # /app/actuator/health/liveness, /app/actuator/health/readiness
 management:
   endpoint:
@@ -20,7 +20,7 @@ management:
     readinessstate:
       enabled: true
 
-# Database ????
+# Database 접속정보
 database:
   ip: 10.10.10.1
   port: 1234

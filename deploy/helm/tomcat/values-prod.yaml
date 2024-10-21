@@ -11,8 +11,8 @@ persistence:
 
 service:
   type: NodePort
-  nodePort: "30081"  # dev(30081), qa(30082), prod(30083)
+  nodePort: "30083"  # dev(30081), qa(30082), prod(30083)
 
 extraEnvVars:
   - name: JAVA_OPTS
-    value: '-Dspring.profiles.active=dev'
+    value: '-Dspring.profiles.active=prod'

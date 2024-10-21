@@ -22,7 +22,7 @@ management:
 
 # Database 접속정보
 database:
-  ip: 10.10.10.1
+  ip: 10.10.10.3
   port: 1234
-  username: dev
-  password: dev
+  username: qa
+  password: qa

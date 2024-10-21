@@ -1,7 +1,12 @@
 package study.k8s.database;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Package: study.k8s.database
@@ -9,44 +14,15 @@ import org.springframework.context.annotation.Configuration;
  * Date: 19/10/2024
  */
 
-@Configuration
-@ConfigurationProperties(prefix = "database")
-public class Database {
+@RestController
+public class DatabaseController {
 
-	private String ip;
-	private String port;
-	private String username;
-	private String password;
+	@Autowired
+	private Database database;
 
-	public String getIp() {
-		return ip;
-	}
-
-	public void setIp(String ip) {
-		this.ip = ip;
-	}
-
-	public String getPort() {
-		return port;
-	}
-
-	public void setPort(String port) {
-		this.port = port;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
+	@GetMapping("/database")
+	@ResponseBody
+	public ResponseEntity<String> getDatabase() {
+		return ResponseEntity.ok(database.toString());
 	}
 }
